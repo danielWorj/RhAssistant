@@ -154,7 +154,7 @@
                                     <tr>
                                         <th>Code</th>
                                         <th>Candidat</th>
-                                        <th>Poste</th>
+                                        <th>Secteur</th>
                                         <th>Localisation</th>
                                         <th>Actions</th>
                                     </tr>
@@ -164,7 +164,7 @@
                                     <tr >
                                         <td>{{$index+1}}</td>
                                         <td>{{c.nom}}</td>
-                                        <td>{{c.poste.intitule}}</td>
+                                        <td>{{c.secteur.intitule}}</td>
                                         <td>{{c.localisation}}</td>
                                     </tr>
                                     }
@@ -206,7 +206,7 @@
             <!-- [ sample-page ] end -->
         </div>
         <!-- [ Main Content ] end -->
-    </div>
+</div>
 
 
 
@@ -233,7 +233,7 @@
                 <h5 class="mb-2"><i class="feather icon-user"></i>&nbsp; : {{selectedCandidate?.nom || 'Nom Prénom'}}</h5>
                 <p class="mb-1"><i class="feather icon-phone"></i>&nbsp; : {{selectedCandidate?.telephone || '+237 6X XX XX XX'}}</p>
                 <p class="mb-0"><i class="feather icon-mail"></i>&nbsp; : {{selectedCandidate?.email || 'email@exemple.com'}}</p>
-                <p class="mb-1"><strong>Poste :</strong> {{selectedCandidate?.poste?.intitule || 'Intitulé poste'}}</p>
+                <p class="mb-1"><strong>Secteur :</strong> {{selectedCandidate?.secteur?.intitule || 'Intitulé poste'}}</p>
                 <p class="mb-1"><strong>Localisation :</strong> {{selectedCandidate?.localisation || 'Ville'}}</p>
                 <hr>
                  <form id="emailForm">
@@ -251,33 +251,36 @@
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-9">
           <div class="card border border-success">
             <div class="card-body">
+              
               <h5>Resume / Profil</h5>
-              <hr>
-              <p>Affichage du CV complet ou des informations détaillées (expériences, formations, compétences) ici.</p>
-              <!-- Si vous voulez afficher le CV intégré, remplacez ce bloc par le contenu approprié -->
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card border border-info">
-            <div class="card-body">
-              <form id="emailForm">
+              <hr class="bg bg-dark">
+               <form id="emailForm">
               
                 <div class="mb-2">
                     <h5>Interroger l'Assistant</h5>
-                  <textarea id="message" class="form-control" rows="6" placeholder="Votre message"></textarea>
+                  <textarea id="message" class="form-control" rows="3" placeholder="Votre message"></textarea>
                 </div>
                 <div class="text-end">
                   <button type="submit" class="btn btn-info">Envoyer</button>
                 </div>
               </form>
+              <hr class="bg bg-dark">
+
+              <p>
+                @if (resumeCV()) {
+                    {{resumeCV()}}
+                }@else {
+                    Affichage du CV complet ou des informations détaillées (expériences, formations, compétences) ici.
+                }
+              </p>
+              <!-- Si vous voulez afficher le CV intégré, remplacez ce bloc par le contenu approprié -->
             </div>
           </div>
         </div>
+
       </div>
      
     </div>

@@ -1,7 +1,9 @@
-import { Poste } from "./Poste";
+import { Secteur } from "./Secteur";
 import { Utilisateur } from "./Utilisateur";
 
 export interface Candidat extends Utilisateur{
-    poste : Poste ; 
+    cv : string ;
+    secteur : Secteur;  
+    
 
 }

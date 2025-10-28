@@ -20,5 +20,9 @@ export const routes: Routes = [
     {
         path : 'recommandation', 
         loadComponent : ()=>import('./Components/recommandation/recommandation').then((r)=>r.Recommandation)
+    },
+    {
+        path : 'configuration', 
+        loadComponent : ()=>import('./Components/Configuration/configuration/configuration').then((c)=>c.Configuration)
     }
 ];

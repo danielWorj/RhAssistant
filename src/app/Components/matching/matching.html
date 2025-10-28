@@ -233,33 +233,58 @@
           </div>
         </div>
 
-        <div class="col-md-6">
+        <div class="col-md-9">
           <div class="card border border-success">
             <div class="card-body">
-              <h5>Matching </h5>
-              <hr>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam odio, eveniet ullam et vero in?.</p>
-              <!-- Si vous voulez afficher le CV intégré, remplacez ce bloc par le contenu approprié -->
-            </div>
-          </div>
-        </div>
-
-        <div class="col-md-3">
-          <div class="card border border-info">
-            <div class="card-body">
-              <form id="emailForm">
+              
+              <h5>Matching</h5>
+              <hr class="bg bg-dark">
+               <form id="emailForm">
               
                 <div class="mb-2">
-                    <h5>Interroger l'Assistant</h5>
-                  <textarea id="message" class="form-control" rows="6" placeholder="Votre message"></textarea>
+                    <h5>Personnalisez votre commande a l'assistant</h5>
+                  <textarea id="message" class="form-control" rows="3" placeholder="Votre message"></textarea>
                 </div>
                 <div class="text-end">
                   <button type="submit" class="btn btn-info">Envoyer</button>
                 </div>
               </form>
+              <hr class="bg bg-dark">
+
+              <p>
+                Affichage de la liste ordonnee des cvs qui corresponde le mieux a cet offre d'emploi
+
+              </p>
+              <hr class="mt-2 mb-2">
+
+              <!-- display center spinnner if the mathing result din't come -->
+
+              @if (isSpinnerMatching()) {
+                <div class="d-flex justify-content-center">
+                    <div class="spinner-border" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+              }
+              @else {
+                <ul class="list-group d-flex justify-content-between">
+                     @for (r of resultMatchingListToDisplay(); track $index) {
+                        <li class="list-item"><span><i class="fa fa-file text-warning"></i> {{r.candidat.nom}} :  </span><span class="fw-bold">{{r.score}}</span></li>
+                     }
+                     @empty {
+                        <p class="text-danger">The list of result is empty</p>
+                     }
+                </ul>
+               
+              }
+
+
+              <!-- Si vous voulez afficher le CV intégré, remplacez ce bloc par le contenu approprié -->
             </div>
           </div>
         </div>
+
+       
       </div>
      
     </div>

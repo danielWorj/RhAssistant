@@ -15,6 +15,15 @@ export class CandidatService {
     return this.http.get<Candidat[]>(rhAssistant.Candidat.all); 
   }
 
+  getAllCandidatBySecteur(id :number):Observable<Candidat[]>{
+    return this.http.get<Candidat[]>(rhAssistant.Candidat.bysecteur+"/"+id); 
+  }
+
+  getCandidatByCvName(cvname : string):Observable<Candidat>{
+    return this.http.get<Candidat>(rhAssistant.Candidat.bycvname + "/"+cvname); 
+
+  }
+
   createCandidat(request:any):Observable<ResponseServer>{
     return this.http.post<ResponseServer>(rhAssistant.Candidat.create, request); 
   }

@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { rhAssistant } from '../../Constant/EndPoints';
-import { Poste } from '../../Model/DB/Poste';
+import { Poste } from '../../Model/DB/Offre';
 import { ResponseServer } from '../../Model/Response/ResponseServer';
 
 @Injectable({

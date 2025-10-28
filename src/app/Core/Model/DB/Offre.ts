@@ -1,6 +1,6 @@
 import { Secteur } from "./Secteur";
 
-export interface Poste{
+export interface Offre{
     id : number ; 
     intitule : string ; 
     descritpion : string ; 
